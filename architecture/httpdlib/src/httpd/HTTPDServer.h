@@ -46,6 +46,7 @@
 #define MHD_PLATFORM_H
 #ifdef __MINGW32__
 typedef size_t socklen_t;
+typedef int64_t ssize_t;
 #endif
 #endif
 

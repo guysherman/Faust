@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -57,24 +57,24 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -107,7 +107,8 @@
     <OutDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
     <IntDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\Int\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>faust</TargetName>
+    <TargetName>libOSCFaust</TargetName>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
@@ -120,7 +121,8 @@
     <OutDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
     <IntDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\Int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>faust</TargetName>
+    <TargetName>libOSCFaust</TargetName>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -147,7 +149,7 @@
     <ClCompile>
       <AdditionalOptions>/wd4554 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;..\..\DevTools\llvm-3.4\include;..\compiler;..\architecture;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_DIR)/include;..\compiler;..\architecture;..\architecture\osclib\faust;..\architecture\osclib\oscpack;..\architecture\osclib\faust\src\osc;..\architecture\osclib\faust\src\lib;..\architecture\osclib\faust\src\threads;..\architecture\osclib\faust\src\msg;..\architecture\osclib\faust\src\nodes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;LLVM_34;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -194,7 +196,7 @@
       <AdditionalOptions>/wd4554 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;../compiler;..\..\DevTools\llvm-3.4\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_DIR)/include;..\compiler;..\architecture;..\architecture\osclib\faust;..\architecture\osclib\oscpack;..\architecture\osclib\faust\src\osc;..\architecture\osclib\faust\src\lib;..\architecture\osclib\faust\src\threads;..\architecture\osclib\faust\src\msg;..\architecture\osclib\faust\src\nodes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN64;YY_NO_UNISTD_H;LLVM_34;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

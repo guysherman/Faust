@@ -2,9 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <LLVM_DIR>C:\Users\Sarah\DevTools\llvm-3.4</LLVM_DIR>
-    <LLVM_BUILD_DIR>C:\Users\Sarah\DevTools\llvm-3.4</LLVM_BUILD_DIR>
-    <OPENSSL_DIR>C:\Users\Sarah\DevTools\libopenssl</OPENSSL_DIR>
+    <LLVM_DIR>D:\Users\Guy\Programming\llvm</LLVM_DIR>
+    <LLVM_BUILD_DIR>D:\Users\Guy\Programming\llvm\build</LLVM_BUILD_DIR>
+    <OPENSSL_DIR>D:\Users\Guy\Programming\openssl</OPENSSL_DIR>
+    <MICROHTTPD_DIR>D:\Users\Guy\Programming\libmicrohttpd-0.9.17-w32</MICROHTTPD_DIR>
     <LLVM_VER>LLVM_34</LLVM_VER>
   </PropertyGroup>
   <PropertyGroup />
@@ -21,6 +22,9 @@
     </BuildMacro>
     <BuildMacro Include="LLVM_VER">
       <Value>$(LLVM_VER)</Value>
+    </BuildMacro>
+    <BuildMacro Include="MICROHTTPD_DIR">
+      <Value>$(MICROHTTPD_DIR)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <UsingTask TaskName="PaceFixLogs" AssemblyFile="$(PACE_FUSION_HOME)PaceFusionUi2013.dll" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -28,24 +28,24 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -83,6 +83,7 @@
     <IntDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\Int\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>faust</TargetName>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
@@ -96,6 +97,7 @@
     <IntDir>_output\$(Platform)\$(Configuration)\$(ProjectName)\Int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <TargetName>faust</TargetName>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -122,7 +124,7 @@
     <ClCompile>
       <AdditionalOptions>/wd4554 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_DIR)\include;..\compiler;..\architecture;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OPENSSL_DIR)/include;../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator/java;../compiler/generator/llvm;../compiler/generator/js;../compiler/generator/fir;../compiler/generator/cpp;../compiler/generator/c;../compiler/generator/asmjs;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_BUILD_DIR)\include;$(LLVM_DIR)\include;..\compiler;..\architecture;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;$(LLVM_VER);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -130,6 +132,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalUsingDirectories>$(OPENSSL_DIR)/include;../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator/java;../compiler/generator/llvm;../compiler/generator/js;../compiler/generator/fir;../compiler/generator/cpp;../compiler/generator/c;../compiler/generator/asmjs;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_BUILD_DIR)\include;$(LLVM_DIR)\include;..\compiler;..\architecture;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -176,6 +179,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalUsingDirectories>$(OPENSSL_DIR)/include;../compiler/tlib;../compiler/signals;../compiler/normalize;../compiler/generator/java;../compiler/generator/llvm;../compiler/generator/js;../compiler/generator/fir;../compiler/generator/cpp;../compiler/generator/c;../compiler/generator/asmjs;../compiler/generator;../compiler/parallelize;../compiler/propagate;../compiler/boxes;../compiler/errors;../compiler/parser;../compiler/evaluate;../compiler/documentator;../compiler/draw/schema;../compiler/draw/device;../compiler/draw;../compiler/extended;../compiler/utils;../compiler/patternmatcher;$(LLVM_BUILD_DIR)\include;$(LLVM_DIR)\include;..\compiler;..\architecture;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
